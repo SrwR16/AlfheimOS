@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, settings, ... }:
 
 let
   nixpkgs = import <nixpkgs> { config = config.nixpkgs.config; };
