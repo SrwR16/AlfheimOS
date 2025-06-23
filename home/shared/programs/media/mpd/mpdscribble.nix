@@ -1,4 +1,4 @@
-{config, ...}:
+{config, settings, ...}:
 {
     services.mpdscribble = {
         enable = true;
@@ -6,11 +6,11 @@
         endpoints = {
             "last.fm" = {
                 passwordFile = "/run/secrets/lastfm";
-                username = "serpentian";
+                username = settings.gitusername;
             };
             "listenbrainz" = {
                 passwordFile = "/run/secrets/listenbrainz";
-                username = "serpent1an";
+                username = settings.gitusername;
             };
         };
     };

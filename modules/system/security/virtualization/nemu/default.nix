@@ -21,7 +21,7 @@ in {
         macvtapGroup = "vhost";
         usbGroup = "usb";
         users = {
-            serpentian = {
+            ${settings.username} = {
                 autoAddVeth = true;
                 autoStartDaemon = true;
             };

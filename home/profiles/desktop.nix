@@ -5,6 +5,7 @@
         ../shared/themes/lib/home.nix
         ../shared/programs/terminals/kitty.nix
         ../shared/programs/tools/git.nix
+        ../shared/programs/tools/gpg.nix
         ../shared/programs/tools/superfile.nix
         ../shared/programs/tools/zathura.nix
         ../shared/programs/tools/nemu.nix
@@ -90,5 +91,5 @@
     };
 
     programs.home-manager.enable = true;
-    home.stateVersion = "24.11";
+    home.stateVersion = settings.stateVersion;
 }

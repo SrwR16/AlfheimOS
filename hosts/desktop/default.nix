@@ -37,7 +37,7 @@
     networking.networkmanager.enable = true;
     networking.networkmanager.dns = "dnsmasq";
     networking.extraHosts = ''
-        127.0.0.1 serpentian.home
+        127.0.0.1 ${settings.hostname}.home
     '';
 
     # Timezone
@@ -46,9 +46,7 @@
 
     # Locale.
     i18n.defaultLocale = settings.locale;
-    i18n.extraLocaleSettings = {
-        LC_ALL = settings.locale;
-    };
+    i18n.extraLocaleSettings = settings.users.${settings.primaryUser}.system.locale.extra;
 
     programs.${settings.shell}.enable = true;
 
@@ -56,7 +54,7 @@
     users.users.${settings.username} = {
         isNormalUser = true;
         shell = settings.shellPkg;
-        description = settings.username;
+        description = settings.name;
         extraGroups = [ "wheel" "gamemode" ];
     };
 
@@ -87,5 +85,5 @@
 
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "24.11"; # Did you read the comment?
+    system.stateVersion = settings.stateVersion;
 }

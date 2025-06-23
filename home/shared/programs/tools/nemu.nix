@@ -1,13 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, settings, ... }:
 
 {
   home.file.".config/nemu/nemu.cfg".text = ''
 [main]
 # virtual machine dir.
-vmdir = /home/serpentian/Drives/hdd/nemu
+vmdir = /home/${settings.username}/Drives/hdd/nemu
 
 # path to database file.
-db = /home/serpentian/.local/share/nemu/nemu.db
+db = /home/${settings.username}/.local/share/nemu/nemu.db
 
 # path to pid file. Example:
 # pid = /tmp/nemu.pid
@@ -100,4 +100,3 @@ dbus_timeout = 2000
 #remote_hash = hash
   '';
 }
-

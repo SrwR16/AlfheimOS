@@ -28,9 +28,7 @@
 
     # Locale.
     i18n.defaultLocale = settings.locale;
-    i18n.extraLocaleSettings = {
-        LC_ALL = settings.locale;
-    };
+    i18n.extraLocaleSettings = settings.users.${settings.primaryUser}.system.locale.extra;
 
     programs.${settings.shell}.enable = true;
 
@@ -38,7 +36,7 @@
     users.users.${settings.username} = {
         shell = settings.shellPkg;
         isNormalUser = true;
-        description = settings.username;
+        description = settings.name;
         extraGroups = [ "wheel" ];
     };
 
@@ -69,5 +67,5 @@
 
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "23.11"; # Did you read the comment?
+    system.stateVersion = settings.stateVersion;
 }
