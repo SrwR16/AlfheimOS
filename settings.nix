@@ -7,9 +7,9 @@ rec {
     system = "x86_64-linux";
 
     # System configuration
-    hostname = "grovetender"; # Hostname
+    hostname = "X"; # Hostname
     username = primaryUser; # Username
-    profile = "desktop"; # Select from hosts/ and home/profiles/ directories
+    profile = "laptop"; # Select from hosts/ and home/profiles/ directories
     stateVersion = "24.05"; # NixOS state version
 
     # User configurations
@@ -50,7 +50,7 @@ rec {
     name = users.sarw.fullName;
     gitusername = users.sarw.name;
     email = users.sarw.email;
-    dotfilesDir = "/home/${username}/.dotfiles"; # Absolute path of the repo;
+    dotfilesDir = "/home/${username}/sarwnix"; # Absolute path of the repo;
 
     theme = "catppuccin"; # Selected theme from home/shared/themes directory
     themeDetails = import (./. + "/home/shared/themes/${theme}.nix") {inherit pkgs;};
