@@ -1,25 +1,23 @@
-{ config, pkgs, settings, ...}:
+{ config, pkgs, settings, inputs, ...}:
 {
     imports = [
-        ../../themes/lib/common.nix
-        ../../themes/lib/home.nix
-        ../../user/apps/spotify.nix
-        ../../user/apps/kitty.nix
-        ../../user/apps/git.nix
-        ../../user/apps/btop
-        ../../user/apps/superfile.nix
-        ../../user/apps/zathura.nix
-        ../../user/apps/nemu.nix
-        ../../user/apps/cava.nix
-        ../../user/apps/khal.nix
-        ../../user/apps/neofetch
-        ../../user/gaming/nethack.nix
-        ../../user/apps/tlaplus.nix
-        ../../user/apps/latex.nix
-        ../../user/shells/${settings.shell}.nix
-    ] ++ (map (wm: ../../user/wm/${wm}.nix) settings.wms)
-      ++ (map (editor: ../../user/editors/${editor}) settings.editors)
-      ++ (map (browser: ../../user/browsers/${browser}.nix) settings.browsers);
+        ../shared/themes/lib/common.nix
+        ../shared/themes/lib/home.nix
+        ../shared/programs/media/spotify.nix
+        ../shared/programs/terminals/kitty.nix
+        ../shared/programs/tools/git.nix
+        ../shared/programs/tools/btop
+        ../shared/programs/tools/superfile.nix
+        ../shared/programs/tools/zathura.nix
+        ../shared/programs/tools/nemu.nix
+        ../shared/programs/media/cava.nix
+        ../shared/programs/tools/khal.nix
+        ../shared/programs/tools/ssh.nix
+        ../shared/programs/tools/neofetch
+        ../shared/programs/gaming/nethack.nix
+        ../shared/shells/${settings.shell}.nix
+    ] ++ (map (wm: ../shared/desktop/${wm}.nix) settings.wms)
+      ++ (map (editor: ../shared/programs/editors/${editor}) settings.editors);
 
     home = {
         username = settings.username;
@@ -38,7 +36,6 @@
         tty-clock
         teleport
         rtorrent
-        tigervnc
         swayimg
         openvpn
         update-resolv-conf
@@ -48,6 +45,11 @@
 
         # Sometimes needed for work.
         chromium
+
+        # These packages are compulsury.
+        # settings.editorPkg
+        settings.browserPkg
+        settings.termPkg
     ];
 
     xdg.enable = true;

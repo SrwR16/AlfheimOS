@@ -1,16 +1,16 @@
 { pkgs, lib, settings, ... }:
 {
     imports = [
-        ./hardware-configuration.nix
-        ../../system/hardware/sound.nix
-        ../../system/hardware/bluetooth.nix
-        ../../system/hardware/desktop/boot.nix
-        ../../system/hardware/laptop/battery.nix
-        ../../system/security/laptop/firewall.nix
-        ../../system/security/virtualization/general.nix
-        ../../system/security/virtualization/nemu
-        ../../system/gaming/nethack.nix
-    ] ++ (map (wm: ../../system/wm/${wm}.nix) settings.wms);
+        ./hardware.nix
+        ../../modules/system/hardware/sound.nix
+        ../../modules/system/hardware/bluetooth.nix
+        ../../modules/system/hardware/desktop/boot.nix
+        ../../modules/system/hardware/laptop/battery.nix
+        ../../modules/system/security/laptop/firewall.nix
+        ../../modules/system/security/virtualization/general.nix
+        ../../modules/system/security/virtualization/nemu/default.nix
+        ../../modules/system/programs/gaming/nethack.nix
+    ] ++ (map (wm: ../../modules/system/desktop/${wm}.nix) settings.wms);
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -71,4 +71,3 @@
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     system.stateVersion = "23.11"; # Did you read the comment?
 }
-

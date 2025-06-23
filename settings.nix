@@ -10,15 +10,15 @@ rec {
     email = "n.zheleztsov@proton.me"; # Email (git config)
     dotfilesDir = "/home/${username}/.dotfiles"; # Absolute path of the repo;
 
-    theme = "catppuccin"; # Selected theme from themes directory (./themes/)
-    themeDetails = import (./. + "/themes/${theme}.nix") {inherit pkgs;};
+    theme = "catppuccin"; # Selected theme from home/shared/themes directory
+    themeDetails = import (./. + "/home/shared/themes/${theme}.nix") {inherit pkgs;};
 
-    shell = "zsh"; # See user/shells directory.
+    shell = "zsh"; # See home/shared/shells directory.
     shellPkg = pkgs.zsh;
 
-    wms = ["hyprland"]; # See user/wm/ and system/wm directories.
-    editors = ["neovim"]; # See user/editors directory.
-    browsers = ["zen-browser"]; # See user/browsers directory.
+    wms = ["hyprland"]; # See home/shared/desktop/ and modules/system/desktop directories.
+    editors = ["neovim"]; # See home/shared/programs/editors directory.
+    browsers = ["zen-browser"]; # See home/shared/programs/browsers directory.
     preferredEditor = "nvim"; # Session variable $TERM.
     preferredBrowser = "zen"; # Session variable $BROWSER.
 }

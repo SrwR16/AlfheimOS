@@ -1,33 +1,26 @@
 {pkgs, ...}:
 {
-    themeName = "nord";
-    wallpaper = ../non-nix/wallpapers/violet-nord.png;
-    override = {
-        base02 = "#445060";
-        base05 = "#fffcf0";
-    };
+    themeName = "everforest-dark-hard";
+    wallpaper = ../../../assets/wallpapers/frieren-everforest.jpg;
+    override = null;
 
     # Override stylix theme of btop.
-    btopTheme = "nord";
+    btopTheme = null;
 
     # Hyprland and ags;
     opacity = 1.0;
-    rounding = 25;
+    rounding = 0;
     shadow = true;
-    bordersPlusPlus = false;
+    bordersPlusPlus = true;
     ags = {
         theme = {
-            palette = {};
             border = {
                 width = 1;
-                opacity = 96;
+                opacity = 70;
             };
         };
         bar = {
-            curved = true;
-        };
-        widget = {
-            opacity = 0;
+            flatButtons = true;
         };
     };
 

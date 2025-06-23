@@ -12,7 +12,7 @@
                 modules = [
                     inputs.stylix.nixosModules.stylix
                     inputs.sops-nix.nixosModules.sops
-                    (./. + "/profiles" + ("/" + settings.profile) + "/configuration.nix")
+                    (./. + "/hosts" + ("/" + settings.profile) + "/default.nix")
                 ];
                 specialArgs = {
                     inherit inputs;
@@ -27,7 +27,7 @@
             ${settings.username} = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.${settings.system};
                 modules = [
-                    (./. + "/profiles" + ("/" + settings.profile) + "/home.nix")
+                    (./. + "/home/profiles" + ("/" + settings.profile) + ".nix")
                     inputs.plasma-manager.homeManagerModules.plasma-manager
                     inputs.stylix.homeModules.stylix
                     inputs.nixvim.homeManagerModules.nixvim

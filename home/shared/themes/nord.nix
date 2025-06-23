@@ -1,8 +1,11 @@
 {pkgs, ...}:
 {
-    themeName = "black-metal-immortal";
-    wallpaper = ../non-nix/wallpapers/black.png;
-    override = null;
+    themeName = "nord";
+    wallpaper = ../../../assets/wallpapers/violet-nord.png;
+    override = {
+        base02 = "#445060";
+        base05 = "#fffcf0";
+    };
 
     # Override stylix theme of btop.
     btopTheme = "nord";

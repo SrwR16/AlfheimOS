@@ -1,26 +1,30 @@
 {pkgs, ...}:
 {
-    themeName = "everforest-dark-hard";
-    wallpaper = ../non-nix/wallpapers/frieren-everforest.jpg;
+    themeName = "black-metal-immortal";
+    wallpaper = ../../../assets/wallpapers/black.png;
     override = null;
 
     # Override stylix theme of btop.
-    btopTheme = null;
+    btopTheme = "nord";
 
     # Hyprland and ags;
     opacity = 1.0;
-    rounding = 0;
+    rounding = 25;
     shadow = true;
-    bordersPlusPlus = true;
+    bordersPlusPlus = false;
     ags = {
         theme = {
+            palette = {};
             border = {
                 width = 1;
-                opacity = 70;
+                opacity = 96;
             };
         };
         bar = {
-            flatButtons = true;
+            curved = true;
+        };
+        widget = {
+            opacity = 0;
         };
     };
 

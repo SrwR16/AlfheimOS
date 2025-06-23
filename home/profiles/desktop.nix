@@ -1,27 +1,26 @@
 { inputs, config, pkgs, settings, ...}:
 {
     imports = [
-        ../../themes/lib/common.nix
-        ../../themes/lib/home.nix
-        ../../user/apps/kitty.nix
-        ../../user/apps/git.nix
-        ../../user/apps/superfile.nix
-        ../../user/apps/zathura.nix
-        ../../user/apps/nemu.nix
-        ../../user/apps/cava.nix
-        ../../user/apps/github.nix
-        ../../user/apps/neofetch
-        ../../user/apps/mangohud.nix
-        ../../user/gaming/nethack.nix
-        ../../user/gaming/steam.nix
-        ../../user/apps/tlaplus.nix
-        ../../user/apps/latex.nix
-        ../../user/apps/btop
-        ../../user/apps/mpd
-        ../../user/shells/${settings.shell}.nix
-    ] ++ (map (wm: ../../user/wm/${wm}.nix) settings.wms)
-      ++ (map (editor: ../../user/editors/${editor}) settings.editors)
-      ++ (map (browser: ../../user/browsers/${browser}.nix) settings.browsers);
+        ../shared/themes/lib/common.nix
+        ../shared/themes/lib/home.nix
+        ../shared/programs/terminals/kitty.nix
+        ../shared/programs/tools/git.nix
+        ../shared/programs/tools/superfile.nix
+        ../shared/programs/tools/zathura.nix
+        ../shared/programs/tools/nemu.nix
+        ../shared/programs/media/cava.nix
+        ../shared/programs/tools/github.nix
+        ../shared/programs/tools/neofetch
+        ../shared/programs/tools/mangohud.nix
+        ../shared/programs/gaming/nethack.nix
+        ../shared/programs/gaming/steam.nix
+        ../shared/programs/tools/tlaplus.nix
+        ../shared/programs/tools/latex.nix
+        ../shared/programs/tools/btop
+        ../shared/programs/media/mpd
+        ../shared/shells/${settings.shell}.nix
+    ] ++ (map (wm: ../shared/desktop/${wm}.nix) settings.wms)
+      ++ (map (editor: ../shared/programs/editors/${editor}) settings.editors);
 
     home = {
         username = settings.username;

@@ -1,21 +1,26 @@
-{pkgs, ...}:
+{ pkgs, ...}:
 {
-    themeName = "gruvbox-material-dark-medium";
-    wallpaper = ../non-nix/wallpapers/nature-gruvbox.jpg;
-    override = null;
+    themeName = "catppuccin-mocha";
+    wallpaper = ../../../assets/wallpapers/evening-sky.png;
+    # Stylix palette override.
+    override = {
+        base00 = "11111b";
+    };
 
     # Override stylix theme of btop.
-    btopTheme = "gruvbox_dark_v2";
+    btopTheme = "catppuccin";
 
-    # Hyprland and ags;
-    opacity = 1.0;
-    rounding = 25;
-    shadow = true;
+    # Hyprland and ags.
+    opacity = 0.8; # affects theme.blur in ags.
+    rounding = 25; # affects theme.rounding in ags.
+    shadow = false; # affects theme.shadows in ags.
     bordersPlusPlus = false;
+
+    # Override default settings in ags.
     ags = {
         theme = {
             palette = {
-                widget = "#45403d";
+                widget = "#25253a";
             };
             border = {
                 width = 1;

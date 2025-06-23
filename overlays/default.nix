@@ -3,9 +3,9 @@
  * other ".nix" files in this directory are automatically loaded.
  */
 final: prev: {
-    _nemu = final.callPackage ../pkgs/nemu.nix {};
-    _hydra = final.callPackage ../pkgs/hydra.nix {};
-    _stmp = final.callPackage ../pkgs/stmp.nix {};
-    _subsonic-tui = final.callPackage ../pkgs/subsonic-tui.nix {};
-    _neonmodem = final.callPackage ../pkgs/neonmodem.nix {};
+    _nemu = final.callPackage ../packages/nemu.nix {};
+    _hydra = final.callPackage ../packages/hydra.nix {};
+    _stmp = final.callPackage ../packages/stmp.nix {};
+    _subsonic-tui = final.callPackage ../packages/subsonic-tui.nix {};
+    _neonmodem = final.callPackage ../packages/neonmodem.nix {};
 }

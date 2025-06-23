@@ -1,30 +1,30 @@
 { pkgs, lib, settings, ... }:
 {
     imports = [
-        ./hardware-configuration.nix
-        ../../system/hardware/sound.nix
-        ../../system/hardware/bluetooth.nix
-        ../../system/hardware/desktop/graphic.nix
-        ../../system/hardware/desktop/mouse.nix
-        # ../../system/hardware/desktop/printing.nix
-        ../../system/hardware/desktop/boot.nix
-        ../../system/hardware/desktop/nfs.nix
-        ../../system/security/desktop/firewall.nix
-        ../../system/security/virtualization/general.nix
-        ../../system/security/virtualization/nemu
-        ../../system/security/sops.nix
-        ../../system/apps/thunar.nix
-        ../../system/apps/guix.nix
-        # ../../system/apps/ollama.nix
-        ../../system/gaming/steam.nix
-        ../../system/gaming/lutris.nix
-        # ../../system/gaming/retroarch.nix
-        ../../system/gaming/aagl.nix
-        ../../system/gaming/nethack.nix
-        # ../../system/gaming/minecraft.nix
-        ../../system/security/vpn/xray.nix
-        ../../themes/lib/common.nix
-    ] ++ (map (wm: ../../system/wm/${wm}.nix) settings.wms);
+        ./hardware.nix
+        ../../modules/system/hardware/sound.nix
+        ../../modules/system/hardware/bluetooth.nix
+        ../../modules/system/hardware/desktop/graphic.nix
+        ../../modules/system/hardware/desktop/mouse.nix
+        # ../../modules/system/hardware/desktop/printing.nix
+        ../../modules/system/hardware/desktop/boot.nix
+        ../../modules/system/hardware/desktop/nfs.nix
+        ../../modules/system/security/desktop/firewall.nix
+        ../../modules/system/security/virtualization/general.nix
+        ../../modules/system/security/virtualization/nemu/default.nix
+        ../../modules/system/security/sops.nix
+        ../../modules/system/programs/apps/thunar.nix
+        ../../modules/system/programs/apps/guix.nix
+        # ../../modules/system/programs/apps/ollama.nix
+        ../../modules/system/programs/gaming/steam.nix
+        ../../modules/system/programs/gaming/lutris.nix
+        # ../../modules/system/programs/gaming/retroarch.nix
+        ../../modules/system/programs/gaming/aagl.nix
+        ../../modules/system/programs/gaming/nethack.nix
+        # ../../modules/system/programs/gaming/minecraft.nix
+        ../../modules/system/security/vpn/xray.nix
+        ../../home/shared/themes/lib/common.nix
+    ] ++ (map (wm: ../../modules/system/desktop/${wm}.nix) settings.wms);
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -89,4 +89,3 @@
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     system.stateVersion = "24.11"; # Did you read the comment?
 }
-
