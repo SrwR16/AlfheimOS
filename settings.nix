@@ -48,7 +48,7 @@ rec {
     timezone = users.sarw.system.timeZone;
     locale = users.sarw.system.locale.default;
     name = users.sarw.fullName;
-    gitusername = users.sarw.name;
+    gitusername = "SrwR16";
     email = users.sarw.email;
     dotfilesDir = "/home/${username}/sarwnix"; # Absolute path of the repo;
 
