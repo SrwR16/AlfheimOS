@@ -4,7 +4,7 @@
     imports = [ inputs.sops-nix.nixosModules.sops ];
 
     # This will add secrets.yml to the nix store
-    sops.defaultSopsFile = ../../secrets/default.yaml;
+    sops.defaultSopsFile = ../../../secrets/default.yaml;
     sops.defaultSopsFormat = "yaml";
 
     sops.age.keyFile = "/home/serpentian/.config/sops/age/keys.txt";
