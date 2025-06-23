@@ -22,9 +22,9 @@
         };
 
         # Standalone home-manager configuration entrypoint.
-        # 'home-manager switch --flake .#username
+        # 'home-manager switch --flake .#username@hostname
         homeConfigurations = {
-            ${settings.username} = home-manager.lib.homeManagerConfiguration {
+            "${settings.username}@${settings.hostname}" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.${settings.system};
                 modules = [
                     (./. + "/home/profiles" + ("/" + settings.profile) + ".nix")
