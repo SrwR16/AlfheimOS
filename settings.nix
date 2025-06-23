@@ -45,11 +45,11 @@ rec {
     };
 
     # Legacy compatibility fields (for existing configuration)
-    timezone = users.${primaryUser}.system.timeZone;
-    locale = users.${primaryUser}.system.locale.default;
-    name = users.${primaryUser}.fullName;
-    gitusername = users.${primaryUser}.name;
-    email = users.${primaryUser}.email;
+    timezone = users.sarw.system.timeZone;
+    locale = users.sarw.system.locale.default;
+    name = users.sarw.fullName;
+    gitusername = users.sarw.name;
+    email = users.sarw.email;
     dotfilesDir = "/home/${username}/.dotfiles"; # Absolute path of the repo;
 
     theme = "catppuccin"; # Selected theme from home/shared/themes directory
