@@ -17,7 +17,7 @@ rec {
     shellPkg = pkgs.zsh;
 
     wms = ["hyprland"]; # See home/shared/desktop/ and modules/system/desktop directories.
-    editors = ["neovim"]; # See home/shared/programs/editors directory.
+    editors = ["neovim" "vscode"]; # See home/shared/programs/editors directory.
     browsers = ["zen-browser"]; # See home/shared/programs/browsers directory.
     preferredEditor = "nvim"; # Session variable $TERM.
     preferredBrowser = "zen"; # Session variable $BROWSER.

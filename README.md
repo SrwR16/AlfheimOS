@@ -11,7 +11,6 @@
         <img src="https://img.shields.io/badge/NixOS-23.11-informational.svg?style=for-the-badge&logo=nixos&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"></a>
 </p>
 
-
 This repository is home to the Nix code that builds my systems. Issues, PRs
 and questions are welcome!
 
@@ -20,8 +19,8 @@ please, go to [this branch](https://github.com/Serpentian/AlfheimOS/tree/catppuc
 
 ## Modules
 
-The config is modular, you can either specify settings inside [`flake.nix`](https://github.com/Serpentian/AlfheimOS/blob/master/flake.nix) or/and
-exclude/include some modules inside profiles directory with:
+The config is modular, you can either specify settings inside [`flake.nix`](https://github.com/Serpentian/AlfheimOS/blob/master/flake.nix) or
+exclude/include modules inside host configurations with:
 
 ```nix
 imports = [
@@ -31,15 +30,30 @@ imports = [
 ];
 ```
 
+## Directory Structure
+
+The configuration follows a modern NixOS flake organization:
+
+- `hosts/` - Host-specific configurations (desktop, laptop, work)
+- `home/` - Home Manager configurations
+  - `profiles/` - Host-specific home manager profiles
+  - `shared/` - Shared home manager modules (desktop environments, programs, themes)
+- `modules/system/` - NixOS system modules (hardware, security, programs)
+- `packages/` - Custom packages and overlays
+- `assets/` - Wallpapers, themes, and other assets
+- `lib/` - Library functions and utilities
+
 ## Profiles
 
-The configuration is separated into several profiles:
-* Personal - personal laptop/desktop
-* Work - work laptop (included in the Personal profile, as I work from home)
+The configuration is separated into several host profiles:
 
-Each profile contains a `configuration.nix` for system-level configuration and a
-`home.nix` for user-level configuration. Setting the `profile` variable in
-[`flake.nix`](https://github.com/Serpentian/AlfheimOS/blob/master/flake.nix) automatically sources the correct `configuration.nix` and `home.nix`.
+- `hosts/desktop/` - Desktop machine configuration
+- `hosts/laptop/` - Laptop configuration
+- `hosts/work/` - Work laptop configuration
+
+Each host contains a `default.nix` for system-level configuration and a
+`hardware.nix` for hardware-specific settings. The corresponding home manager
+configuration is in `home/profiles/`.
 
 ## Install
 
@@ -55,7 +69,7 @@ To get the hardware configuration on a new system, either copy from
 
 ```
 cd ~/.dotfiles
-sudo nixos-generate-config --show-hardware-config > profiles/desktop/hardware-configuration.nix
+sudo nixos-generate-config --show-hardware-config > hosts/desktop/hardware.nix
 ```
 
 Don't use my hardware configuration, your system won't boot!
@@ -102,5 +116,6 @@ home-manager switch --flake .
 ![Screen3](./assets/everforest/overview.png)
 
 ## Credits
-* [librephoenix/nixos-config](https://github.com/librephoenix/nixos-config?tab=readme-ov-file) - The repo structure is heavily inspired by this repo.
+
+- [librephoenix/nixos-config](https://github.com/librephoenix/nixos-config?tab=readme-ov-file) - The repo structure is heavily inspired by this repo.
   Also, check out his [NixOS videos](https://piped.video/channel/UCeZyoDTk0J-UPhd7MUktexw), fantastic entry point to NixOS.
